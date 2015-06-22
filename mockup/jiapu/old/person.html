@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>家谱</title>
+<link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+<table class="TableClassic" align="center" width="900px">
+<tr>
+	<td style="width:300px;height:30px;text-align:center" class="classic_title">子女</td>
+	<td style="width:300px;height:30px;text-align:center" class="classic_title">诞生及配偶</td>
+	<td style="width:300px;text-align:center" rowspan="2" class="classic_title">
+		<table>
+			<tr>
+				<td style="width:300px;height:180px">
+				<div  style="width:300px" class="classic">{$person.name}</div>
+				</td>
+			</tr>
+			<tr>
+				<td style="width:300px;height:250px" class="classic_content">
+				<div class="classic_div">{$person.othername}</div>				
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td style="width:300px;height:400px;text-align:right">
+		<div class="classic_div">
+		{$person.child_desc}
+		</div>
+	</td>
+	<td style="width:300px;height:400px;text-align:right" >
+	<div class="classic_div">
+	{$person.birth}{$person.marriage_desc}
+	</div>
+	</td>
+</tr>
+
+<tr>
+	<td style="width:300px;height:30px;text-align:center" class="classic_title" >注释</td>
+	<td style="width:300px;height:30px;text-align:center" class="classic_title">寿德及功业</td>
+	<td style="width:300px;height:30px;text-align:center" class="classic_title">故亡及墓址</td>
+</tr>
+
+<tr>
+	<td style="width:300px;height:400px;text-align:center" >
+		<div class="classic_div">
+		{$person.misc}
+		</div>
+	</td>
+	<td style="width:300px;height:400px;text-align:center"><div class="classic_div">{$person.deeds}</div></td>
+	<td style="width:300px;height:400px;text-align:center"><div class="classic_div">{$person.death}{$person.tomb}</div></td>
+</tr>
+</table>
+<p align="center">
+<a href="addperson.html">增加</a>
+</p>
+<p align="center">
+<a href="editperson.php?id={$person.person_id}">编辑</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    <!-- HTTP security configurations -->
+    <http auto-config="true" use-expressions="true">
+    	<remember-me key="jiapuKey" token-validity-seconds="86400"/>
+    	<form-login login-processing-url="/j_spring_security_check" login-page="/login" authentication-failure-url="/login?login_error=t" />
+    	<logout delete-cookies="JSESSIONID" logout-url="/logoff"  logout-success-url="/" />
+        <!-- Configure these elements to secure URIs in your application -->
+        <intercept-url pattern="/family/show/*" access="isAuthenticated()" />
+        <intercept-url pattern="/family/searchfamily" access="permitAll" />
+        <intercept-url pattern="/family/search" access="permitAll" />
+        <intercept-url pattern="/user/searchfamilytojoin" access="permitAll" />
+        <intercept-url pattern="/family/*" access="isAuthenticated()" />
+        <intercept-url pattern="/login" access="permitAll" />
+        
+    </http>
+    <!-- Configure Authentication mechanism -->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider>
+		    <password-encoder hash="md5" />
+            <jdbc-user-service id="userService" data-source-ref="dataSource"
+            users-by-username-query="select username, password, true from jiapuuser where username = ?"
+            authorities-by-username-query="select username, userrole from jiapuuser where username = ?"
+            />            
+        </authentication-provider>
+    </authentication-manager>
+    
+</beans:beans>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>家谱</title>
+<link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+<form action="updateperson.php" method="POST">
+<input type="hidden" name="person_id" value="{$person.person_id}" />
+<table class="TableClassic" align="center" width="800px">
+	<tr>
+
+	<tr>
+	<td width="100px">姓名</td>
+	<td style="width:230px;height:90px">
+		<input  style="width:230px" type="text" name="name" value="{$person.name}"/>
+	</td>
+	<td width="100px">别名</td>
+	<td style="width:300px;height:90px">
+		<textarea  style="width:300px;height:90px" wrap="on" name="othername" >{$person.othername}</textarea>
+	</td>
+	</tr>
+
+    <tr>
+	<td width="100px">诞生及配偶</td>
+	<td width="300px">
+			<textarea style="width:300px;height:180px"  wrap="on" name="birth" >{$person.birth}</textarea>
+		</td>
+		<td>子女</td>
+		<td>
+			<textarea style="width:300px;height:180px"  wrap="on" name="child_desc" >{$person.child_desc}</textarea>
+		</td>
+	</tr>
+	<tr>
+	
+		<td>故亡及墓址</td>
+		<td>
+			<textarea style="width:300px;height:180px" wrap="on" name="death" >{$person.death}</textarea>
+		</td>
+		<td>寿德及功业</td>
+		<td>
+			<textarea style="width:300px;height:180px" wrap="on" name="deeds" >{$person.deeds}</textarea>
+		</td>
+	</tr>
+	<tr>
+
+		<td>注释</td>
+		<td>
+			<textarea style="width:300px;height:180px" wrap="on" name="misc" >{$person.misc}</textarea>
+		</td>
+		<td>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center"> <input type="submit" value="修改" /></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

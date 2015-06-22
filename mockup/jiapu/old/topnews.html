@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>头条广场</title>
+<link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+{include file="navigator.html" }
+<table width="60%" align="center" class="table_multiColor" >
+<tr>
+	<th width="10%">网站</th><th width="40%">新闻</th><th width="20%">更新时间</th>
+</tr>
+{foreach item=news from=$rows }
+<tr>
+<td>{$news.site_name}</td>
+<td><a href="{$news.url}" target="blank">{$news.title}</a></td>
+<td>{$news.add_time}</td>
+</tr>
+{/foreach}
+</table>
+</body>
+</html>
+ 
+

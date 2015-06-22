@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>名人名言</title>
+<link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+{include file="navigator.html" }
+<table width="40%" align="center">
+<tr>
+<td>第{$curpage}页</td>
+{if $curpage eq 1}
+<td>上一页</td>
+{else}
+<td><a href="motto.php?page={$curpage-1}" style="color:navy">上一页</a></td>
+{/if}
+{if $curpage eq $totalpage }
+<td>下一页</td>
+{else}
+<td><a href="motto.php?page={$curpage+1}" style="color:navy">下一页</a></td>
+{/if}
+<td><form action="motto.php" method="GET"><input type="submit" name="submit" value="直接跳到第"/><input type="text" name=page value="{$curpage+1}" style="width:50"/>页</form></td>
+</tr>
+</table>
+
+<table width="80%" align="center" class="table_multiColor" >
+<tr>
+	<th width="90%">名言</th><th width="10%">作者</th>
+</tr>
+{foreach item=motto from=$rows }
+<tr>
+<td>{$motto.words}</td>
+<td align="center">{$motto.author}</td>
+</tr>
+{/foreach}
+</table>
+<table width="20%" align="center">
+<tr>
+<td>第{$curpage}页</td>
+{if $curpage eq 1}
+<td>上一页</td>
+{else}
+<td><a href="motto.php?page={$curpage-1}" style="color:navy">上一页</a></td>
+{/if}
+{if $curpage eq $totalpage }
+<td>下一页</td>
+{else}
+<td><a href="motto.php?page={$curpage+1}" style="color:navy">下一页</a></td>
+{/if}
+</tr>
+</table>
+</body>
+</html>
+ 
+
